@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Projetos Bragantec </title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link rel = "stylesheet" href = "{% static 'css\index.css' %}">
+
+</head>
+<body>
+  <div class="conteiner">
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="container">
+      <nav class="navbar bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href = "#hero">Inicio</a>
+          <a class="navbar-brand" href = "#projetos">Projetos</a>
+          <form class="d-flex" role="search" method="GET" id="buscarF">
+            <input class="form-control me-2" type="search" placeholder="Buscar projetos" aria-label="Search" name ="search" id ="search">
+            <button id ="button-addon1" class="btn btn-danger" type="submit">Buscar</button>
+          </form>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container" data-aos="fade-in">
+      <h1>Similaridades na Bragantec</h1>
+    </div>
+  </section>
+  <!-- End Hero Section -->
+
+  <!-- Projetos -->
+  <main id="main">
+    <div id = "inicioP">
+      <br>
+      <h1>Projetos:</h1>
+      <br>
+    </div>
+    <div class = "conteiner">
+
+      <form class="d-flex" role="search" method="GET" id="buscarF">
+        <input class="form-control me-2" name ="search" id ="search" placeholder="Buscar projetos pelo titulo" aria-label="Search">
+        <button id ="button-addon1" class="btn btn-danger" type="submit">Buscar</button>
+      </form>
+    </div>
+    <div id = "projetos">
+      <br>
+      <br>
+      <div class="list-group">
+        {% for projeto in projetos %}
+        <a href ="/projeto/{{projeto.codigo}}" class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{projeto.titulo}}</h5>
+            <small>{{projeto.ano}}</small>
+          </div>
+          <p class="mb-1">Alunos participantes: {{projeto.autores}}</p>
+          <small>Orientador e coorientador: {{projeto.orientador }} , {{projeto.coOrientador}}</small>
+          <Br>
+        </a>
+        {% endfor %}
+      </div>
+      <br>
+      <br>
+    </div>
+    
+
+  </main><!-- End #main -->
+
+  <div id = "desenvolvedores">
+    <hr>
+    <br>
+    <h6>Por: Leonardo, Pedro, Reinaldo</h6>
+    <br>
+    <hr>
+  </div>
+
+
+  <!-- ======= Footer ======= -->
+  <footer class="footer">
+    <div class="copyrights">
+      <div class="container">
+        <p>&copy; Copyrights eStartup. All rights reserved.</p>
+        <div class="credits">
+          <!--
+          All the links in the footer should remain intact.
+          You can delete the links only if you purchased the pro version.
+          Licensing information: https://bootstrapmade.com/license/
+          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=eStartup
+        -->
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+      </div>
+    </div>
+
+  </footer><!-- End  Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+
+  </div>
+
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+  <script scr="{% static 'js/index.js' %}"></script>
+  
+
+</body>
+
+</html>
